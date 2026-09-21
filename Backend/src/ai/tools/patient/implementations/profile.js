@@ -1,5 +1,5 @@
 // backend/src/ai/tools/patient/implementations/profile.js
-import Patient from "../../../../models/Patient.model.js";
+import Patient from "../../../../models/patient.model.js";
 
 export const getMyProfile = async (args, { userId }) => {
   const patient = await Patient.findById(userId)
