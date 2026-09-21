@@ -1,8 +1,8 @@
 // Backend/src/ai/tools/doctor/implementations/clinical.js
-import Patient from "../../../../models/Patient.model.js";
-import Prescription from "../../../../models/Prescription.model.js";
-import LabReport from "../../../../models/LabReport.model.js";
-import MedicalHistory from "../../../../models/MedicalHistory.model.js";
+import Patient from "../../../../models/patient.model.js";
+import Prescription from "../../../../models/prescription.model.js";
+import LabReport from "../../../../models/labReport.model.js";
+import MedicalHistory from "../../../../models/medicalHistory.model.js";
 import { verifyDoctorHasAccess } from "./patients.js";
 
 /**

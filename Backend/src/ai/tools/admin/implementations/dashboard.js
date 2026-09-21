@@ -1,8 +1,8 @@
 // Backend/src/ai/tools/admin/implementations/dashboard.js
-import Patient from "../../../../models/Patient.model.js";
-import Doctor from "../../../../models/Doctor.model.js";
-import Appointment from "../../../../models/Appointment.model.js";
-import Invoice from "../../../../models/Invoice.model.js";
+import Patient from "../../../../models/patient.model.js";
+import Doctor from "../../../../models/doctor.model.js";
+import Appointment from "../../../../models/appointment.model.js";
+import Invoice from "../../../../models/invoice.model.js";
 
 export const getDashboardStats = async () => {
   const todayStart = new Date(); todayStart.setHours(0, 0, 0, 0);

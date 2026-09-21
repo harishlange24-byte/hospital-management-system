@@ -1,7 +1,7 @@
 // Backend/src/ai/tools/admin/implementations/notifications.js
-import Notification from "../../../../models/Notification.model.js";
-import Patient from "../../../../models/Patient.model.js";
-import Doctor from "../../../../models/Doctor.model.js";
+import Notification from "../../../../models/notification.model.js";
+import Patient from "../../../../models/patient.model.js";
+import Doctor from "../../../../models/doctor.model.js";
 
 export const sendBroadcastNotification = async (
   { audience, title, message },

@@ -1,5 +1,5 @@
 // backend/src/ai/tools/patient/implementations/labReports.js
-import LabReport from "../../../../models/LabReport.model.js";
+import LabReport from "../../../../models/labReport.model.js";
 
 export const getMyLabReports = async ({ testName, limit = 5 } = {}, { userId }) => {
   const query = { patientId: userId };

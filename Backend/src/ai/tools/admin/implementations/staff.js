@@ -1,6 +1,6 @@
 // Backend/src/ai/tools/admin/implementations/staff.js
-import Doctor from "../../../../models/Doctor.model.js";
-import Patient from "../../../../models/Patient.model.js";
+import Doctor from "../../../../models/doctor.model.js";
+import Patient from "../../../../models/patient.model.js";
 
 export const getStaffOverview = async () => {
   const [totalDoctors, totalPatients] = await Promise.all([
@@ -26,7 +26,7 @@ export const getStaffOverview = async () => {
 
 export const getDoctorPerformance = async ({ period = "month" }) => {
   // Placeholder — Appointment model aggregate
-  const Appointment = (await import("../../../../models/Appointment.model.js")).default;
+  const Appointment = (await import("../../../../models/appointment.model.js")).default;
 
   const now = new Date();
   let start;

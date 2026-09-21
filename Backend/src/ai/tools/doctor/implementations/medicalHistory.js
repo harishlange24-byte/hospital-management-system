@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/doctor/implementations/medicalHistory.js
-import MedicalHistory from "../../../../models/MedicalHistory.model.js";
+import MedicalHistory from "../../../../models/medicalHistory.model.js";
 import { verifyDoctorHasAccess } from "./patients.js";
 
 export const getPatientMedicalHistory = async ({ patientId }, { userId }) => {

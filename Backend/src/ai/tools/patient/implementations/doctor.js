@@ -1,7 +1,7 @@
 // backend/src/ai/tools/patient/implementations/doctors.js
-import Doctor from "../../../../models/Doctor.model.js";
-import Schedule from "../../../../models/Schedule.model.js";
-import Appointment from "../../../../models/Appointment.model.js";
+import Doctor from "../../../../models/doctor.model.js";
+import Schedule from "../../../../models/schedule.model.js";
+import Appointment from "../../../../models/appointment.model.js";
 
 export const listDoctors = async ({ specialization } = {}) => {
   const query = {};

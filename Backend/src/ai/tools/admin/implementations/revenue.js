@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/admin/implementations/revenue.js
-import Invoice from "../../../../models/Invoice.model.js";
+import Invoice from "../../../../models/invoice.model.js";
 
 export const getRevenueReport = async ({ period = "month" }) => {
   const now = new Date();

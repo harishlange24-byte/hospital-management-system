@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/admin/implementations/pharmacy.js
-import Medicine from "../../../../models/Medicine.model.js";
+import Medicine from "../../../../models/medicine.model.js";
 
 export const getPharmacyInventory = async ({ lowStock = false, searchName } = {}) => {
   const query = {};
@@ -32,7 +32,7 @@ export const getPharmacyInventory = async ({ lowStock = false, searchName } = {}
 
 export const getPharmacySales = async ({ period = "month" }) => {
   // Assumption: PharmacySale model hai. Agar alag hai to adjust.
-  const PharmacySale = (await import("../../../../models/PharmacySale.model.js")).default;
+  const PharmacySale = (await import("../../../../models/pharmacySale.model.js")).default;
 
   const now = new Date();
   let start;
@@ -76,7 +76,7 @@ export const getPharmacySales = async ({ period = "month" }) => {
 };
 
 export const predictMedicineDemand = async ({ topN = 10 } = {}) => {
-  const PharmacySale = (await import("../../../../models/PharmacySale.model.js")).default;
+  const PharmacySale = (await import("../../../../models/pharmacySale.model.js")).default;
 
   // Last 3 months sales → average → predict next month
   const threeMonthsAgo = new Date();

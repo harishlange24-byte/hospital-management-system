@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/doctor/implementations/labReports.js
-import LabReport from "../../../../models/LabReport.model.js";
+import LabReport from "../../../../models/labReport.model.js";
 import { verifyDoctorHasAccess } from "./patients.js";
 
 export const getPatientLabReports = async (

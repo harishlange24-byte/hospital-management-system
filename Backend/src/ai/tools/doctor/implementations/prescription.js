@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/doctor/implementations/prescriptions.js
-import Prescription from "../../../../models/Prescription.model.js";
+import Prescription from "../../../../models/prescription.model.js";
 import { verifyDoctorHasAccess } from "./patients.js";
 
 export const getPatientPrescriptions = async (

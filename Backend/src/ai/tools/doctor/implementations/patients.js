@@ -1,6 +1,6 @@
 // Backend/src/ai/tools/doctor/implementations/patients.js
-import Appointment from "../../../../models/Appointment.model.js";
-import Patient from "../../../../models/Patient.model.js";
+import Appointment from "../../../../models/appointment.model.js";
+import Patient from "../../../../models/patient.model.js";
 
 /**
  * Doctor ka access check — kya ye patient doctor ke paas tha kabhi?

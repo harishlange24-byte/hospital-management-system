@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/doctor/implementations/appointments.js
-import Appointment from "../../../../models/Appointment.model.js";
+import Appointment from "../../../../models/appointment.model.js";
 
 export const getMyAppointments = async ({ filter = "today" }, { userId }) => {
   const query = { doctorId: userId };

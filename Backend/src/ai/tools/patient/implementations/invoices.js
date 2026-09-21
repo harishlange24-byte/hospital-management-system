@@ -1,5 +1,5 @@
 // backend/src/ai/tools/patient/implementations/invoices.js
-import Invoice from "../../../../models/Invoice.model.js";
+import Invoice from "../../../../models/invoice.model.js";
 
 export const getMyInvoices = async ({ onlyPending = false } = {}, { userId }) => {
   const query = { patientId: userId };

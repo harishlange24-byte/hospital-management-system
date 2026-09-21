@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/admin/implementations/patients.js
-import Patient from "../../../../models/Patient.model.js";
+import Patient from "../../../../models/patient.model.js";
 
 const getDateFilter = (period) => {
   const now = new Date();

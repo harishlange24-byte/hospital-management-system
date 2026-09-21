@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/doctor/implementations/schedule.js
-import Schedule from "../../../../models/Schedule.model.js";
+import Schedule from "../../../../models/schedule.model.js";
 
 export const getMySchedule = async ({ filter = "today" }, { userId }) => {
   const now = new Date();

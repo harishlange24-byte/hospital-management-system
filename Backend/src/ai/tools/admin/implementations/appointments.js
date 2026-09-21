@@ -1,5 +1,5 @@
 // Backend/src/ai/tools/admin/implementations/appointments.js
-import Appointment from "../../../../models/Appointment.model.js";
+import Appointment from "../../../../models/appointment.model.js";
 
 const getDateFilter = (period) => {
   const now = new Date();
