@@ -22,10 +22,13 @@ const app = express();
 // ==========================================
 // MIDDLEWARES
 // ==========================================
-
+const allowedOrigins =[
+  "https://hospital-management-system-pied-mu.vercel.app",
+    "http://localhost:5173",
+]
 app.use(
   cors({
-    origin:  "http://localhost:5173",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
