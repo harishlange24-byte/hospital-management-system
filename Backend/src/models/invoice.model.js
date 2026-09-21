@@ -76,6 +76,6 @@ const invoiceSchema = new mongoose.Schema(
 
 invoiceSchema.index({ patient: 1, createdAt: -1 });
 
-const Invoice = mongoose.model("Invoice", invoiceSchema);
+const Invoice =mongoose.models.Invoice || mongoose.model("Invoice", invoiceSchema);
 
 export default Invoice;

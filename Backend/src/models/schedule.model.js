@@ -54,6 +54,6 @@ const scheduleSchema = new mongoose.Schema(
 
 scheduleSchema.index({ doctor: 1, date: 1 }, { unique: true });
 
-const Schedule = mongoose.model("Schedule", scheduleSchema);
+const Schedule =mongoose.models.Schedule || mongoose.model("Schedule", scheduleSchema);
 
 export default Schedule;

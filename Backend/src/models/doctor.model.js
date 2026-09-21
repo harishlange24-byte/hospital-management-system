@@ -73,6 +73,6 @@ const doctorSchema = new mongoose.Schema(
 doctorSchema.index({ specialization: 1 });
 doctorSchema.index({ department: 1 });
 
-const Doctor = mongoose.model("Doctor", doctorSchema);
+const Doctor = mongoose.models.Doctor || mongoose.model("Doctor", doctorSchema);
 
 export default Doctor;

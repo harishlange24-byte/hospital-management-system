@@ -1,45 +1,64 @@
-import { generateAIReponse } from "../services/ai.service.js";
+import { processChat } from "../services/gemini.service.js";
 
 export const chatWithAI = async (req, res) => {
   try {
-    const { message } = req.body;
+    const { message, history = [] } = req.body;
+    const { role, _id: userId } = req.user;
 
-    if (!message || !message.trim()) {
+    // Validation
+    if (!message || typeof message !== "string" || message.trim() === "") {
       return res.status(400).json({
         success: false,
-        message: "Message is Required",
+        message: "Message is required",
       });
     }
 
-    const prompt = `
-You are a helpful hospital information assistant.
+    if (!Array.isArray(history)) {
+      return res.status(400).json({
+        success: false,
+        message: "History must be an array",
+      });
+    }
 
-Answer the user's question clearly and simply.
+    // Role check — sirf 3 allowed roles
+    if (!["patient", "doctor", "admin"].includes(role)) {
+      return res.status(403).json({
+        success: false,
+        message: "AI access not available for this role",
+      });
+    }
 
-Important:
-- Do not diagnose diseases.
-- Do not prescribe medicines.
-- Do not replace a doctor.
-- If the question requires medical diagnosis or treatment, advise the user to consult a qualified doctor.
-
-User question:
-${message}
-`;
-
-    const answer = await generateAIReponse(prompt);
-
-    console.log("FINAL AI ANSWER:", answer);
+    // Process karo
+    const { reply, history: updatedHistory, toolsUsed } = await processChat({
+      role,
+      userId,
+      message: message.trim(),
+      history,
+    });
 
     return res.status(200).json({
       success: true,
-      answer,
+      reply,
+      history: updatedHistory,
+      toolsUsed,
+      user: { id: userId, role },
     });
-  } catch (err) {
-    console.error("AI Controller Error:", err);
+
+  } catch (error) {
+    console.error("❌ AI Chat Error:", error);
+
+    if (error.message?.includes("quota") || error.message?.includes("429")) {
+      return res.status(429).json({
+        success: false,
+        message: "AI rate limit reached. Thoda wait karke try karo.",
+      });
+    }
 
     return res.status(500).json({
       success: false,
-      message: err.message || "AI service error",
+      message: "AI service failed",
+      details:
+        process.env.NODE_ENV === "development" ? error.message : undefined,
     });
   }
 };

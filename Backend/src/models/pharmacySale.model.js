@@ -65,6 +65,6 @@ const pharmacySaleSchema = new mongoose.Schema(
   }
 );
 
-const PharmacySale = mongoose.model("PharmacySale", pharmacySaleSchema);
+const PharmacySale = mongoose.models.PharmacySale || mongoose.model("PharmacySale", pharmacySaleSchema);
 
 export default PharmacySale;

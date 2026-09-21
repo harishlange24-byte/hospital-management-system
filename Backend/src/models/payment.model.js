@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const paymentSchema = new mongoose.Schema(
   {
@@ -72,6 +72,6 @@ const paymentSchema = new mongoose.Schema(
 paymentSchema.index({ patient: 1, createdAt: -1 });
 paymentSchema.index({ razorpayOrderId: 1 });
 
-const Payment = mongoose.model("Payment", paymentSchema);
+const Payment = mongoose.models.Payment || mongoose.model("Payment", paymentSchema);
 
 export default Payment;

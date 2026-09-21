@@ -89,6 +89,6 @@ appointmentSchema.index({ doctor: 1, appointmentDate: 1 });
 appointmentSchema.index({ patient: 1, appointmentDate: 1 });
 appointmentSchema.index({ status: 1 });
 
-const Appointment = mongoose.model("Appointment", appointmentSchema);
+const Appointment =mongoose.models.Appointment || mongoose.model("Appointment", appointmentSchema);
 
 export default Appointment;

@@ -54,7 +54,7 @@ const medicalHistorySchema = new mongoose.Schema(
 
 medicalHistorySchema.index({ patient: 1, createdAt: -1 });
 
-const MedicalHistory = mongoose.model(
+const MedicalHistory = mongoose.models.MedicalHistory || mongoose.model(
   "MedicalHistory",
   medicalHistorySchema
 );

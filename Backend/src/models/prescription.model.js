@@ -59,6 +59,6 @@ const prescriptionSchema = new mongoose.Schema(
 prescriptionSchema.index({ patient: 1, createdAt: -1 });
 prescriptionSchema.index({ doctor: 1, createdAt: -1 });
 
-const Prescription = mongoose.model("Prescription", prescriptionSchema);
+const Prescription = mongoose.models.Prescription || mongoose.model("Prescription", prescriptionSchema);
 
-export default Prescription;
+export default  Prescription;

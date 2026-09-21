@@ -68,6 +68,6 @@ const medicineSchema = new mongoose.Schema(
 
 medicineSchema.index({ name: "text", brand: "text", category: "text" });
 
-const Medicine = mongoose.model("Medicine", medicineSchema);
+const Medicine = mongoose.models.Medicine || mongoose.model("Medicine", medicineSchema);
 
 export default Medicine;
